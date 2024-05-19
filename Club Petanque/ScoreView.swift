@@ -14,7 +14,18 @@ struct ScoreView: View {
             NavigationView {
                 List(viewModel.events) { event in
                     Section {
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .center) {
+                            HStack {
+                                if let image = event.fields.Picture?.first {
+                                    AsyncImage(url: URL(string: image.url)) { image in
+                                        image.resizable().aspectRatio(contentMode: .fit)
+                                    } placeholder: {
+                                        Color.gray
+                                    }
+                                    .frame(height: 100)
+                                    .cornerRadius(10)
+                                }
+                            }
                             Text(event.fields.Name).font(.title3).bold()
                             HStack {
                                 Text(event.fields.Location).font(.caption)
@@ -22,15 +33,8 @@ struct ScoreView: View {
                             }
                             Divider()
                             Text(event.fields.Event).font(.subheadline)
-                            if let image = event.fields.Picture?.first {
-                                AsyncImage(url: URL(string: image.url)) { image in
-                                    image.resizable().aspectRatio(contentMode: .fit)
-                                } placeholder: {
-                                    Color.gray
-                                }
-                                .frame(height: 100)
-                                .cornerRadius(10)
-                            }
+                            
+                            
                         }
                     }
                 }

@@ -18,6 +18,7 @@
 		20CA90602BE786C500E74656 /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 20CA905F2BE786C500E74656 /* SplineRuntime */; };
 		20FAAA042BEFF34800DD1FDF /* TrophyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FAAA032BEFF34800DD1FDF /* TrophyViewModel.swift */; };
 		20FAAA062BEFF68200DD1FDF /* Keys.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 20FAAA052BEFF4EF00DD1FDF /* Keys.xcconfig */; };
+		20FAAA0B2BF012E500DD1FDF /* DimentialTrophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FAAA0A2BF012E500DD1FDF /* DimentialTrophy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		20FAAA032BEFF34800DD1FDF /* TrophyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyViewModel.swift; sourceTree = "<group>"; };
 		20FAAA052BEFF4EF00DD1FDF /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
 		20FAAA072BEFF71B00DD1FDF /* Club-Petanque-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Club-Petanque-Info.plist"; sourceTree = SOURCE_ROOT; };
+		20FAAA0A2BF012E500DD1FDF /* DimentialTrophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimentialTrophy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +71,9 @@
 				20FAAA072BEFF71B00DD1FDF /* Club-Petanque-Info.plist */,
 				20CA90422BE69AD600E74656 /* Club_PetanqueApp.swift */,
 				20CA90442BE69AD600E74656 /* ContentView.swift */,
-				20CA90562BE6CF8000E74656 /* ScoreView.swift */,
 				20CA905A2BE6D0C400E74656 /* TrophyView.swift */,
+				20FAAA0A2BF012E500DD1FDF /* DimentialTrophy.swift */,
+				20CA90562BE6CF8000E74656 /* ScoreView.swift */,
 				20FAAA092BEFFEB900DD1FDF /* Models */,
 				20FAAA082BEFFEA500DD1FDF /* ViewModels */,
 				20FAAA052BEFF4EF00DD1FDF /* Keys.xcconfig */,
@@ -91,8 +94,8 @@
 		20FAAA082BEFFEA500DD1FDF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				203267F92BE7ECDB00E68A76 /* ScoreViewModel.swift */,
 				20FAAA032BEFF34800DD1FDF /* TrophyViewModel.swift */,
+				203267F92BE7ECDB00E68A76 /* ScoreViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				20FAAA042BEFF34800DD1FDF /* TrophyViewModel.swift in Sources */,
 				203267FA2BE7ECDB00E68A76 /* ScoreViewModel.swift in Sources */,
 				20CA90432BE69AD600E74656 /* Club_PetanqueApp.swift in Sources */,
+				20FAAA0B2BF012E500DD1FDF /* DimentialTrophy.swift in Sources */,
 				20CA905B2BE6D0C400E74656 /* TrophyView.swift in Sources */,
 				20CA90572BE6CF8000E74656 /* ScoreView.swift in Sources */,
 			);

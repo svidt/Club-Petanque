@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TrophyView: View {
     
+    @State private var showTrophy = false
     @ObservedObject var viewModel = TrophyViewModel()
     
     var body: some View {
@@ -19,39 +20,45 @@ struct TrophyView: View {
                 .frame(height: 500)
                 .ignoresSafeArea()
             
-            VStack(spacing: 12) {
+            VStack(alignment: .center, spacing: 12) {
+                
+//                if let image = viewModel.trophyHolder?.fields.Picture?.first {
+//                    AsyncImage(url: URL(string: image.url)) { image in
+//                        image.resizable().aspectRatio(contentMode: .fit)
+//                    } placeholder: {
+//                        Color.gray
+//                    }
+//                    .frame(height: 100)
+//                    .cornerRadius(10)
+//                }
+                
+                Text(viewModel.trophyHolder?.fields.Name ?? "Finding Winner")
+                    .font(.largeTitle.bold())
                 HStack {
-                    Text(viewModel.trophyHolder?.fields.Name ?? "No Winner")
-                        .font(.title.bold())
-                    
-                    Spacer()
-                    
-                    Text("\(Date.now.formatted(date: .abbreviated, time: .omitted))").font(.subheadline)
+                        Text(viewModel.trophyHolder?.fields.Location ?? "Location")
+                            .font(.subheadline)
+                        Text(viewModel.trophyHolder?.fields.Date ?? "Date")
+                            .font(.caption)
                 }
                 Text(viewModel.trophyHolder?.fields.Event ?? "Details about the event and the winner will appear here.")
-                                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.secondary)
                 
+//                Button {
+//                    showTrophy = true
+//                } label: {
+//                    Image(systemName: "globe")
+//                }
+//                .sheet(isPresented: $showTrophy, content: {
+//                    DimentialTrophy()
+//                })
             }
             .padding(.horizontal)
             
             Spacer()
-            
-            Button {
-                print("Winner button tapped!")
-            } label: {
-                Text("Show Winner")
-                    .fontWeight(.bold)
-                    .padding(4)
-            }
-            .buttonStyle(BorderedProminentButtonStyle())
-            .tint(.pink)
-            .padding()
-            
-            Spacer()
         }
         .onAppear {
-                    viewModel.fetchTrophyHolder()
-                }
+            viewModel.fetchTrophyHolder()
+        }
     }
 }
 

@@ -11,11 +11,11 @@ class TrophyViewModel: ObservableObject {
     @Published var trophyHolder: EventRecord?  // Holds details of the trophy holder
     @Published var isLoading = false
     @Published var errorMessage: String?
-
+    
     private let apiKey: String
     private let baseID: String
     private let tableName: String
-
+    
     init() {
         guard let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else {
             fatalError("API Key not found in Info.plist")
@@ -34,7 +34,10 @@ class TrophyViewModel: ObservableObject {
     }
     
     func fetchTrophyHolder() {
-        guard let url = URL(string: "https://api.airtable.com/v0/\(baseID)/\(tableName)") else {
+        // Modify the URL to include sorting parameters
+        let urlString = "https://api.airtable.com/v0/\(baseID)/\(tableName)?sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc"
+        
+        guard let url = URL(string: urlString) else {
             errorMessage = "Invalid URL"
             return
         }
@@ -49,7 +52,8 @@ class TrophyViewModel: ObservableObject {
                 if let data = data {
                     do {
                         let decodedResponse = try JSONDecoder().decode(AirtableResponse.self, from: data)
-                        self.trophyHolder = decodedResponse.records.first  // Assuming only one record for the trophy holder
+                        // Assuming you want the most recent record
+                        self.trophyHolder = decodedResponse.records.first
                     } catch {
                         self.errorMessage = "Failed to decode data: \(error.localizedDescription)"
                     }
@@ -60,4 +64,3 @@ class TrophyViewModel: ObservableObject {
         }.resume()
     }
 }
-

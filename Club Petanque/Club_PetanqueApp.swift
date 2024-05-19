@@ -12,6 +12,7 @@ struct Club_PetanqueApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.colorScheme, .dark)
         }
     }
 }
